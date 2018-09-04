@@ -1,6 +1,7 @@
 <?php
 
 require('src/controller/ControllerFrontend.php');
+require('src/controller/ControllerBackend.php');
 
 if (isset($_GET['action'])) {
     if ($_GET['action'] == 'listPosts') {
