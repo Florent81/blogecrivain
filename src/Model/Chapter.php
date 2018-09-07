@@ -1,33 +1,83 @@
 <?php
 
-require ('Login.php');
+namespace Livrable3;
+
+use Livrable3\Login;
 
 class Chapter 
 
     
 {
-    private $chapter,
-            $NbreChapter,
-            $Nbrewords;
+    private $id;
+    private $title;
+    private $content;
+    private $datePublication;       
+            
 
-  public function add($chapter)
-
+  public function __construct($values = NULL)
   {
-    return $this->$insertchapter;
+    if($values != null)
+    {
+      $this->hydrate($values)
+    }
+  }
+  public function hydrate(array $values)
+	{
+		foreach ($values as $key=>$value)
+		{
+			$elements = explode('_',$key);
+			$newKey='';
+			foreach($elements as $el)
+			{
+				$newKey .= ucfirst($el);
+			}
+			
+			$method = 'set' .ucfirst($newKey);
+			if (method_exists($this, $method))
+			{
+				$this->$method($value);
+			}
+		}
+	} 
+
+  public function getId() 
+  {
+    return $this->id;
   }
 
-  public function delete($chapter)
-
+  public function setId(int $id)
   {
-    return $this->$insertchapter;
-
+    $this->id = $id;
   }
 
-  public function update($chapter)
-
+  public function getTitle(): ?string  
   {
-    return $this->$insertchapter;
-
+    return $this->title;
   }
+
+  public function setTitle(string $title)
+  {
+    $this->title = $title;
+  }
+  public function getContent(): ?string  
+  {
+    return $this->content;
+  }
+
+  public function setContent(string $content)
+  {
+    $this->title = $content;
+  }
+
+  public function getDatePublication(): ?int 
+  {
+    return $this->datePublication;
+  }
+
+  public function setDatePublication(int $datePublication)
+  {
+    $this->title = $datePublication;
+  }
+
 
 }

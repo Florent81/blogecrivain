@@ -1,6 +1,7 @@
 <?php
+namespace Livrable3;
 
-require('model.php');
+class BackendController extends src\controller\TwigController
 
 function listPosts()
 {

@@ -1,10 +1,14 @@
 <?php
 
-require('/src/Model/Login.php');
-require('/src/Model/Chapter.php');
-require('/src/Model/Comment.php');
-require('/src/Model/CommentAdd.php');
+namespace Livrable3;
 
+use Livrable3\Login;
+use Livrable3\Chapter;
+use Livrable3\ChapterManager;
+use Livrable3\Comment;
+use Livrable3\CommentManager;
+
+class FrontController extends src\controller\TwigController
 
 function listPosts()
 {
@@ -20,3 +24,19 @@ function post()
 
     require('postView.php');
 }
+
+public function listArticles(int $page)
+    {
+        $articleManager = new ArticleManager();
+        
+        $articles = $articleManager->getArticles($page);
+        $numbers = $articleManager->getPage($articles);
+         $chapters = $articleManager->getChapters();
+         
+        echo $this->twig->render('listArticlesView.twig', array(
+            'articles'=>$articles,
+            'numbers'=>$numbers,
+            'chapters'=>$chapters
+        ));
+        
+    }
