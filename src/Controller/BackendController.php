@@ -1,19 +1,20 @@
 <?php
-namespace Livrable3;
+namespace App\Controller;
 
 class BackendController extends src\controller\TwigController
-
-function listPosts()
 {
+    function listPosts()
+    {
     $posts = getPosts();
 
     require('listPostsView.php');
-}
+    }
 
-function post()
-{
+    function post()
+    {
     $post = getPost($_GET['id']);
     $comments = getComments($_GET['id']);
 
     require('postView.php');
+    }
 }

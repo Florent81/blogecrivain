@@ -1,8 +1,8 @@
 <?php
 
-namespace Livrable3;
+namespace App\Controller;
 
-use Livrable3\Login;
+use App\Controller\Login;
 
 class Comment
 

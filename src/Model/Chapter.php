@@ -1,8 +1,8 @@
 <?php
 
-namespace Livrable3;
+namespace App\Model;
 
-use Livrable3\Login;
+use App\Model\Login;
 
 class Chapter 
 
@@ -81,3 +81,4 @@ class Chapter
 
 
 }
+

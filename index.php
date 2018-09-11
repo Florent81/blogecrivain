@@ -1,20 +1,32 @@
 <?php
+error_reporting(E_ALL); 
+ini_set("display_errors", 1);
+
 require 'vendor/autoload.php';
+use App\Controller\FrontendController;
+use App\Controller\BackendController;
 
 
-if (isset($_GET['action'])) {
-    if ($_GET['action'] == 'listPosts') {
-        listPosts();
-    }
-    elseif ($_GET['action'] == 'post') {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            post();
-        }
-        else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
-    }
+$url = "";
+if(isset($_GET['url']))
+{
+    $url=$_GET['url'];
+
 }
-else {
-    listPosts();
+if($url == "")
+{
+   $homepage=new FrontendController();
+    $homepage->homepage();
 }
+
+elseif ($url == "chapitres")
+{
+    $book = new FrontendController();
+    $book->book();
+}    
+
+elseif ($url == "chapitre/id=".$id)
+{
+    $chapter = new FrontendController();
+    $chapter->chapter($_GET['id']);
+}   

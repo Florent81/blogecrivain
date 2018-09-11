@@ -1,4 +1,5 @@
 <?php
+namespace App\Model;
 class Login 
 {
   
@@ -6,7 +7,7 @@ class Login
   {
   try
     {
-   $bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
+   $bdd = new \PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', 'root');
     }
   
   catch(Exception $e)

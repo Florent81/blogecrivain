@@ -1,42 +1,47 @@
 <?php
 
-namespace Livrable3;
+namespace App\Controller;
 
-use Livrable3\Login;
-use Livrable3\Chapter;
-use Livrable3\ChapterManager;
-use Livrable3\Comment;
-use Livrable3\CommentManager;
+use App\Controller\Login;
+use App\Controller\Chapter;
+use App\Model\ChapterManager;
+use App\Controller\Comment;
+use App\Controller\CommentManager;
 
-class FrontController extends src\controller\TwigController
-
-function listPosts()
+class FrontendController extends \App\Controller\TwigController
 {
-    $posts = getPosts();
-
-    require('listPostsView.php');
-}
-
-function post()
-{
-    $post = getPost($_GET['id']);
-    $comments = getComments($_GET['id']);
-
-    require('postView.php');
-}
-
-public function listArticles(int $page)
+    public function homepage()
     {
-        $articleManager = new ArticleManager();
-        
-        $articles = $articleManager->getArticles($page);
-        $numbers = $articleManager->getPage($articles);
-         $chapters = $articleManager->getChapters();
-         
-        echo $this->twig->render('listArticlesView.twig', array(
-            'articles'=>$articles,
-            'numbers'=>$numbers,
-            'chapters'=>$chapters
+        $lastChapter = new ChapterManager();
+        $lastest = $lastChapter->getLastChapter();
+       
+        echo $this->twig->render('index.html.twig', array(
+            'lastest' => $lastest,
+        ));
+
+    }
+
+    public function book()
+    {
+       $allChapters = new ChapterManager();
+       $chapters = $allChapters->getAllChapters();
+
+        echo $this->twig->render('book.html.twig', array(
+            'chapters' => $chapters,
+           
         ));
         
     }
+
+    public function viewChapter($id)
+    {
+       $chapterManager = new ChapterManager();
+       $chapter = $chapterManager->getChapter($id);
+
+        echo $this->twig->render('viewChapter.html.twig', array(
+            'chapter' => $chapter,
+           
+        ));
+        
+    }
+}

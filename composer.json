@@ -1,7 +1,7 @@
 {
     "autoload":{
         "psr-4": {
-            "Livrable3\\": "src"
+            "App\\": "src/"
         }       
 },
      

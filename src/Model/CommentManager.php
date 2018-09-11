@@ -1,7 +1,7 @@
 <?php
-namespace Livrable3;
+namespace App\Controller;
 
-use Livrable3\Comment;
+use App\Controller\Comment;
 
 Class CommentManager extends Login
 
