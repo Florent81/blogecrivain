@@ -52,16 +52,18 @@ a:hover, a:focus, a:active {
 
 
 /* INDEX */
-.new {
- margin-top:-443px;
- margin-left:80px;
+.last-chapter {
+ margin-top:-480px;
+ margin-bottom:280px;
 }
+
+
 
 /* ALL CHAPTERS */
 .block-chapters {
   margin-bottom: 15px;
   width:100%;
-  margin-left:20%;
+
 }
 
 

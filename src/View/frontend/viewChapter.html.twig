@@ -5,13 +5,19 @@
 <div class="container">
 
     
-    <div class="block-chapter">
-        <div class="chapter-title">
-        {{ chapter.title }}</div>
-        <div class="chapter-content">
-        {{chapter.content}}
-     
+    <div class="chapter">
+        <div class="row">
+            <div class="col-md-5 center-block">
+                <h1> {{ chapter.title }} </h1><br />
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-md-5 center-block">
+                  {{chapter.content}}
+             </div>
+        </div>
+        
     </div>
     
- </div>
+ </div><br /><br />
 {% endblock %}
