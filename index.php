@@ -42,3 +42,9 @@ elseif ($url == "a-propos")
    $about = new FrontendController();
    $about->about();
 }  
+
+elseif ($url == "admin040590")
+{
+   $login = new FrontendController();
+   $login->login();
+}  
