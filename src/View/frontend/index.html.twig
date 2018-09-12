@@ -3,39 +3,39 @@
 {% block body %}
 <div class="container">
     <div class="row">
-
-        <div class="col-md-12 col-md-offset-4"><h1> Nouveau chapitre! </h1>
-
+    <div class="col-md-3"><h1> Notre livre </h1>
+        <img class= "img-responsive" src="Public/images/livre.png"></div>
         <div class="row">
-
-        <div class="col-md-12"> <p> J'ai le plaisir de vous dévoiler mon dernier chapitre. N'hésitez pas à laisser
-     un commentaire</p><br/><br/> 
-            <div class="row">
-                <div class="col-md-6 col-md-offset-1"><h2>{{lastest.title}}</h2> le {{lastest.date_publication_fr}}<br/><br/>
-
-                    <div class="row">
-
-                        <div class="col-md-6">{{lastest.content|slice(0, 600) }}...</div>
-
-                     </div>
-
-                </div>
-
+            <div class="col-md-3"><h2> Préambule </h2><br/>
+                <p> À travers ce livre vous voyagerez de l’emblématique mont McKinley (6 194 m)
+             aux glaciers bleutés se 
+             déversant dans le Prince William Sound, des plages sauvages de l’île de
+             Kodiak aux forêts profondes de l’île Amirauté, domaine des ours, des 
+             saumons et des aigles chauves, c’est la nature que l’on vient rencontrer
+              en Alaska. </p><br/><br/>
             </div>
-
         </div>
-
-
+        <div class="new">
+            <div class="col-md-12 col-md-offset-3"><h1> Nouveau chapitre! </h1>
+                <div class="row">
+                    <div class="col-md-12"> <p> J'ai le plaisir de vous dévoiler 
+                mon dernier chapitre. N'hésitez pas à laisser un commentaire</p><br/><br/> 
+                        <div class="row">
+                             <div class="col-md-6 col-md-offset-1"><h2>{{lastest.title}}</h2> 
+                             le {{lastest.date_publication_fr}}<br/><br/>
+                             <div class="row">
+                                <div class="col-md-6">{{lastest.content|slice(0, 600) }}...
+                                    <a href="chapitres"> Tout lire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
     </div>
 </div>
      
-    
-
-
-
-
-
-
 </div>    
 
 {% endblock %}

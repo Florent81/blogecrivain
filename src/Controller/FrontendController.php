@@ -44,4 +44,19 @@ class FrontendController extends \App\Controller\TwigController
         ));
         
     }
+
+    public function endorsements()
+    {
+      
+        echo $this->twig->render('mentionsLegales.html.twig');
+        
+    }
+
+    public function about()
+    {
+      
+        echo $this->twig->render('propos.html.twig');
+        
+    }
+
 }

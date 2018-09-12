@@ -25,8 +25,20 @@ elseif ($url == "chapitres")
     $book->book();
 }    
 
-elseif ($url == "chapitre/id=".$id)
+elseif ($url == "chapitre")
 {
-    $chapter = new FrontendController();
-    $chapter->chapter($_GET['id']);
-}   
+   $chapter = new FrontendController();
+   $chapter->viewChapter($_GET['id']);
+}    
+
+elseif ($url == "mentions-legales")
+{
+   $endorsements = new FrontendController();
+   $endorsements->endorsements();
+}  
+
+elseif ($url == "a-propos")
+{
+   $about = new FrontendController();
+   $about->about();
+}  

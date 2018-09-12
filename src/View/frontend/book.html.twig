@@ -5,13 +5,17 @@
 <div class="container">
 
     {% for chapter in chapters %}
+    
+    
+            
     <div class="block-chapters">
-        <div class="chapters-title">
-        {{ chapter.title }}
+    <div class="row">
+       <div class="col-md-8 center-block"> <div class="chapters-title">
+       <h2> {{ chapter.title }}</h2>
         {{ chapter.datePublication|date('d m Y') }}</div>
         <div class="chapters-content">
         {{chapter.content|slice(0, 600) }}
-        ...<a href="chapitre/id={{ chapter.id }}"> Tout lire</a></div>
+        ...<a href="chapitre&id={{ chapter.id }}"> Tout lire</a></div>
     </div>
     {% endfor %}
  </div>

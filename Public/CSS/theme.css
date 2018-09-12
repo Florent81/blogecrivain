@@ -8,9 +8,8 @@
       }
 .navbar{
     margin-top:10px;
-    margin-right:10px;
-    
-  
+    margin-right:10px; 
+    margin-bottom:-0px;
   } 
 body { background-color:#DDD; margin-left:10px; }
       [class*="col"] { margin-bottom: 20px; }
@@ -21,6 +20,7 @@ img { width: 100%; }
     margin-right:10px;
   
   } 
+
 .ml-1 {
     margin-left: 10px;
     margin-right: 10px;
@@ -35,10 +35,33 @@ img { width: 100%; }
   margin-left: auto;
 }
 
+.img-responsive{
+  margin-bottom:10px;
+  margin-right:10px;
+
+} 
+
+a, a:visited {
+ 
+  color: #4e4d4d; 
+}
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: #ff0000;
+}
+
+
+/* INDEX */
+.new {
+ margin-top:-443px;
+ margin-left:80px;
+}
+
 /* ALL CHAPTERS */
 .block-chapters {
   margin-bottom: 15px;
-
+  width:100%;
+  margin-left:20%;
 }
 
 

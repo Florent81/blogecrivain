@@ -19,7 +19,7 @@ Class ChapterManager extends Login
     {
       $request = $this->db->prepare('INSERT INTO chapter(title, content, date_publication) 
       VALUES (:title, :content, :date_publication)');
-      $request = execute([
+      $request->execute([
           'title'=>$chapter->getTitle(),
           'content'=>$chapter->getContent(),
           'date_publication'=>$chapter->getDatePublication()
@@ -31,7 +31,7 @@ Class ChapterManager extends Login
     {
       $request = $this->db->prepare('DELETE FROM chapter(title, content, date_publication) 
       WHERE (:id)');
-      $request = execute([
+      $request->execute([
           'title'=>$chapter->getTitle(),
           'content'=>$chapter->getContent(),
           'date_publication'=>$chapter->getDatePublication()
@@ -44,7 +44,7 @@ Class ChapterManager extends Login
       $request = $this->db->prepare('UPDATE chapter SET title = :title, content = :content, 
       date_publication = :date_publication WHERE title = :title, content = :content, 
       date_publication = :date_publication ');
-      $request = execute([
+      $request->execute([
           'title'=>$chapter->getTitle(),
           'content'=>$chapter->getContent(),
           'date_publication'=>$chapter->getDatePublication()
@@ -58,11 +58,11 @@ Class ChapterManager extends Login
        \'%d-%m-%Y\') AS date_publication_fr FROM chapter ORDER BY id DESC LIMIT 1');
         $lastchapter = $req->fetch();
         return $lastchapter;
-      }
+    }
     
     public function getAllChapters()
 
-      {
+    {
           $req= $this->db->query('SELECT id, title, content, date_publication 
           FROM chapter ORDER BY date_publication DESC');
           $allChapters = $req->fetchAll();
@@ -74,11 +74,10 @@ Class ChapterManager extends Login
     {
       $request = $this->db->prepare('SELECT id, title, content, date_publication 
       FROM chapter WHERE id = ?');
-      $request = execute([
-            $id,   
+      $request->execute([
+        $id,  
       ]);
       $chapter= $request->fetch();
-      var_dump($chapter); die;
       return $chapter;
     }
 }
