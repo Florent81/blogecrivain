@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Model;
+namespace App\Model\frontend;
 
-use App\Model\Chapter;
+use App\Model\frontend\Chapter;
 
 Class ChapterManager extends Login
 

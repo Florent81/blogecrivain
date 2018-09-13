@@ -3,8 +3,6 @@
 {% block title %}Chapitre{% endblock %}
 {% block body %}
 <div class="container">
-
-    
     <div class="chapter">
         <div class="row">
             <div class="col-md-5 center-block">
@@ -18,6 +16,46 @@
         </div>
         
     </div>
-    
- </div><br /><br />
+    <div class="block-comments">
+         <div class="row">
+            <div class="col-md-5 center-block">
+          {% for c in comment %}
+                <div class="comment-title">
+                     <h4> {{ c.title }}{{ c.pseudo }}</h4>
+                         {{ c.date_publication|date('d m Y') }}
+                </div>
+                <div class="comment-content">
+                 {{c.content}}
+                </div>
+                
+          {% endfor %}
+            </div>
+         </div>
+    </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <form role="form" id="contactForm">
+                     <div class="add-comment">
+                        <h2>Ajouter un commentaire</h2>
+                        <div class="row">
+                            <label for="name" class="h4">Pseudo</label>
+                            <input type="text" class="form-control" id="name" placeholder="Entrer pseudo" required>
+                        </div>
+                        <div class="row">
+                            <label for="email" class="h4">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Entrer email" required>
+                        </div>
+                        <div class="row">
+                          <div class="form-group">
+                            <label for="message" class="h4 ">Commentaire</label>
+                            <textarea id="message" class="form-control" rows="5" placeholder="Entrer votre commentaire" required></textarea>
+                            <button type="submit" id="form-submit" class="btn btn-success btn-md pull-right">Soumettre</button>
+                            <div id="msgSubmit" class="h3 text-center hidden">Commentaire soumis!</div>
+                          </div>  
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

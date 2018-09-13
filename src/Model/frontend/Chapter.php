@@ -1,19 +1,17 @@
 <?php
 
-namespace App\Controller;
+namespace App\Model\frontend;
 
-use App\Controller\Login;
+use App\Model\frontend\Login;
 
-class Comment
+class Chapter 
 
     
 {
     private $id;
     private $title;
     private $content;
-    private $pseudo;
-    private $datePublication;
-    private $report;       
+    private $datePublication;       
             
 
   public function __construct($values = NULL)
@@ -42,7 +40,7 @@ class Comment
 		}
 	} 
 
-  public function getId() 
+  public function getIdChapter() 
   {
     return $this->id;
   }
@@ -52,12 +50,12 @@ class Comment
     $this->id = $id;
   }
 
-  public function getTitle(): ?varchar  
+  public function getTitle(): ?string  
   {
     return $this->title;
   }
 
-  public function setTitle(varchar $title)
+  public function setTitle(string $title)
   {
     $this->title = $title;
   }
@@ -68,17 +66,7 @@ class Comment
 
   public function setContent(string $content)
   {
-    $this->content = $content;
-  }
-
-  public function getPseudo(): ?varchar  
-  {
-    return $this->pseudo;
-  }
-
-  public function setPseudo(varchar $content)
-  {
-    $this->pseudo = $pseudo;
+    $this->title = $content;
   }
 
   public function getDatePublication(): ?int 
@@ -88,18 +76,9 @@ class Comment
 
   public function setDatePublication(int $datePublication)
   {
-    $this->datePublication = $datePublication;
-  }
-
-  public function getReport(): ?int 
-  {
-    return $this->report;
-  }
-
-  public function setReport(int $datePublication)
-  {
-    $this->report = $report;
+    $this->title = $datePublication;
   }
 
 
 }
+

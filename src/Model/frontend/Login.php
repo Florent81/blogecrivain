@@ -1,5 +1,6 @@
 <?php
-namespace App\Model;
+namespace App\Model\frontend;
+
 class Login 
 {
   

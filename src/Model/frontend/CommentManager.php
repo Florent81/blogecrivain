@@ -1,7 +1,7 @@
 <?php
-namespace App\Controller;
+namespace App\Model\frontend;
 
-use App\Controller\Comment;
+use App\Model\frontend\Comment;
 
 Class CommentManager extends Login
 
@@ -36,5 +36,19 @@ Class CommentManager extends Login
       ]);
     }
 
+    public function getViewComment()
+
+    {
+        $request = $this->db->prepare('SELECT id, pseudo, content, date_publication  
+        FROM comment  WHERE id_chapter = ? ORDER BY date_publication DESC');
+        $request->execute([
+            $_GET['id'],  
+        ]);
+        return $request; 
+        
+    }
+
 }
+
+
 

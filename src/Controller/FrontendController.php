@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
-use App\Controller\Login;
-use App\Controller\Chapter;
-use App\Model\ChapterManager;
-use App\Controller\Comment;
-use App\Controller\CommentManager;
+use App\Model\frontend\Login;
+use App\Model\frontend\Chapter;
+use App\Model\frontend\ChapterManager;
+use App\Model\frontend\Comment;
+use App\Model\frontend\CommentManager;
+use App\Model\frontend\User;
+use App\Model\frontend\UserManager;
 
 class FrontendController extends \App\Controller\TwigController
 {
@@ -45,6 +47,17 @@ class FrontendController extends \App\Controller\TwigController
         
     }
 
+    public function viewComment($id_chapter)
+    {
+       $commentChapter = new CommentManager();
+       $comment  = $commentChapter->getViewComment($id_chapter);
+
+        echo $this->twig->render('viewChapter.html.twig', array(
+            'comment' => $comment,    
+        ));
+          
+    }
+
     public function endorsements()
     {
       
@@ -65,5 +78,7 @@ class FrontendController extends \App\Controller\TwigController
         echo $this->twig->render('login.html.twig');
         
     }
+
+
 
 }

@@ -29,6 +29,8 @@ elseif ($url == "chapitre")
 {
    $chapter = new FrontendController();
    $chapter->viewChapter($_GET['id']);
+   $comment = new FrontendController();
+   $comment->viewComment($_GET['id']);
 }    
 
 elseif ($url == "mentions-legales")
@@ -43,8 +45,16 @@ elseif ($url == "a-propos")
    $about->about();
 }  
 
-elseif ($url == "admin040590")
+elseif ($url == "authentification")
 {
    $login = new FrontendController();
    $login->login();
 }  
+
+  
+
+elseif ($url == "admin")
+{
+   $admin = new BackendController();
+   $admin->admin();
+} 

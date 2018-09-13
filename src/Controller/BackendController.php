@@ -1,20 +1,31 @@
 <?php
 namespace App\Controller;
 
-class BackendController extends src\controller\TwigController
-{
-    function listPosts()
-    {
-    $posts = getPosts();
+use App\Model\frontend\Login;
+use App\Model\backend\AdminManager;
+use App\Model\backend\Admin;
+use App\Model\backend\Crud;
+use App\Model\backend\DBFactory;
+use App\Model\backend\NewsManagerMySQLi;
+use App\Model\backend\NewsManagerPDO;
 
-    require('listPostsView.php');
+class BackendController extends \App\controller\TwigController
+{
+    public function authentication()
+    {
+        $authentication = new AdminManager();
+        $authentication = $authentication->getLastChapter();
+       
+        echo $this->twig->render('index.html.twig', array(
+            'lastest' => $lastest,
+        ));
+
     }
 
-    function post()
+    public function admin()
     {
-    $post = getPost($_GET['id']);
-    $comments = getComments($_GET['id']);
-
-    require('postView.php');
+      
+        echo $this->twig->render('admin.html.twig');
+        
     }
 }
