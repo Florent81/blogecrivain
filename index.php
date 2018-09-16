@@ -20,18 +20,23 @@ if($url == "")
 }
 
 elseif ($url == "chapitres")
-{
+
+    
+    {
     $book = new FrontendController();
     $book->book();
-}    
+    }
+     
 
 elseif ($url == "chapitre")
 {
-   $chapter = new FrontendController();
-   $chapter->viewChapter($_GET['id']);
-   $comment = new FrontendController();
-   $comment->viewComment($_GET['id']);
-}    
+    if(isset($_GET['id']))
+
+    {
+     $chapter = new FrontendController();
+     $chapter->viewChapter($_GET['id']);
+    }
+}
 
 elseif ($url == "mentions-legales")
 {
@@ -51,10 +56,9 @@ elseif ($url == "authentification")
    $login->login();
 }  
 
-  
-
-elseif ($url == "admin")
+elseif ($url == "admin040591")
 {
    $admin = new BackendController();
    $admin->admin();
 } 
+

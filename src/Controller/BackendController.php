@@ -24,8 +24,12 @@ class BackendController extends \App\controller\TwigController
 
     public function admin()
     {
-      
+        $admin = new Admin();
+        $admin = $adminindex->getLastChapter();
         echo $this->twig->render('admin.html.twig');
         
     }
+
+    
+    
 }

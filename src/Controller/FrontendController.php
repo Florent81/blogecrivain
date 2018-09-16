@@ -38,26 +38,20 @@ class FrontendController extends \App\Controller\TwigController
     public function viewChapter($id)
     {
        $chapterManager = new ChapterManager();
+       $commentChapter = new CommentManager();
+       $addComment = new CommentManager();
        $chapter = $chapterManager->getChapter($id);
+       $comment  = $commentChapter->getViewComment();
+       $add = $addComment->getAdd($comment);
 
         echo $this->twig->render('viewChapter.html.twig', array(
             'chapter' => $chapter,
-           
+            'comment' => $comment,
+            'add' => $add,
         ));
         
     }
-
-    public function viewComment($id_chapter)
-    {
-       $commentChapter = new CommentManager();
-       $comment  = $commentChapter->getViewComment($id_chapter);
-
-        echo $this->twig->render('viewChapter.html.twig', array(
-            'comment' => $comment,    
-        ));
-          
-    }
-
+    
     public function endorsements()
     {
       

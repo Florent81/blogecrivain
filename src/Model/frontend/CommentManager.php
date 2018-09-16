@@ -13,7 +13,7 @@ Class CommentManager extends Login
        $this->db = self::dbConnect(); 
     }
 
-    public function add(Comment $comment)
+    public function add($comment)
 
     {
       $request = $this->db->prepare('INSERT INTO comment(pseudo, title, content, date_publication) 

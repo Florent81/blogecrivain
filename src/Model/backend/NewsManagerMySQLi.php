@@ -22,7 +22,7 @@ class NewsManagerMySQLi extends Crud
   {
 
     $request = $this->db->prepare('INSERT INTO chapter(title, content, date_publication,
-    ) VALUES(?, ?, ?, NOW(), NOW())');
+    ) VALUES(?, ?, ?, NOW(),)');
     $request->bind_param('sss', $chapter->title(), $chapter->content());
     $request->execute();
 

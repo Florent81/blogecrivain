@@ -15,7 +15,7 @@ class NewsManagerPDO extends Crud
 
     $request = $this->db->prepare('INSERT INTO 
     chapter(title, content, date_publication,) 
-    VALUES(:title, :content, NOW(), NOW())');
+    VALUES(:title, :content, NOW())');
 
     $request->bindValue(':title', $chapter->title());
 

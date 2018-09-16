@@ -13,7 +13,7 @@ class Comment
     private $content;
     private $pseudo;
     private $datePublication;
-    private $report;       
+    private $report = false;       
             
 
   public function __construct($values = NULL)
@@ -92,12 +92,12 @@ class Comment
     $this->id_chapter = $id_chapter;
   }
 
-  public function getReport(): ?int 
+  public function getReport(): 
   {
     return $this->report;
   }
 
-  public function setReport(int $datePublication)
+  public function setReport()
   {
     $this->report = $report;
   }

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Model\frontend;
+namespace App\Model\backend;
 
 use App\Model\frontend\Login;
 
-class User 
+class Access
 
-    
 {
     
     private $pseudo;

@@ -21,9 +21,9 @@ abstract class Crud
   public function save(Chapter $chapter)
 
   {
-    if ($news->isValid())
+    if ($chapter->isValid())
     {
-      $news->isNew() ? $this->add($chapter) : $this->update($chapter);
+      $chapter->isNew() ? $this->add($chapter) : $this->update($chapter);
     }
     else
     {
