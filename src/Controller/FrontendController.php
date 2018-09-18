@@ -84,6 +84,18 @@ class FrontendController extends \App\Controller\TwigController
        header('Location:book');
     }
 
+    public function reportComment($id)
+    {
+       $comment = new Comment();
+       $comment->setreport(true);
+       $comment->setId($id);
+       $commentChapter = new CommentManager();
+       $reportComment  = $commentChapter->signalComment($comment);
+
+
+       header('Location:book');
+    }
+
 
 
 }

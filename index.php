@@ -70,6 +70,13 @@ elseif ($url == "addComment")
    $newComment->addComment($_GET['id'], $_POST['pseudo'],$_POST['content']);
 }
 
+elseif ($url == "reportComment")
+{
+   $reportComment = new FrontendController();
+   $reportComment->reportComment($_GET['id']);
+}
+
+
 elseif ($url == "")
 {
     ( new \App\Controller\ErrorController() )->error404();

@@ -26,14 +26,15 @@ Class CommentManager extends Login
       ]);
     }
 
-    public function update(Comment $comment)
+    public function signalComment(Comment $comment)
 
     {
       $request = $this->db->prepare('UPDATE comment SET report = :report
-       WHERE report= :report ');
-      $request = execute([
-          'report'=>$report->getReport(),
+       WHERE id = :id');
+      $isSignaled = $request->execute([
+          'id'=>$comment->getId(),
       ]);
+      return $isSignaled;
     }
 
     public function getViewComment()

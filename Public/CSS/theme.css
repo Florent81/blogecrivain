@@ -67,6 +67,13 @@ a:hover, a:focus, a:active {
 
 }
 
+/* VIEW CHAPTER */
+.chapter {
+  text-justify: auto;
+  line-height: 1,4 em;
+
+}
+
 /* LOGIN*/
 .form-group-login {
   margin-bottom: 200px;

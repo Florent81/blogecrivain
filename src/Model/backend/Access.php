@@ -37,6 +37,7 @@ class Access
 				$this->$method($value);
 			}
 		}
+    return $this;
 	} 
 
   public function getMail()
