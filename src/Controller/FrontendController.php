@@ -81,7 +81,7 @@ class FrontendController extends \App\Controller\TwigController
        $commentChapter = new CommentManager();
        $addComment  = $commentChapter->add($newComment);
 
-       header('Location:book');
+       header("Location:chapitre&id={$id_chapter}");
     }
 
     public function reportComment($id)
@@ -93,7 +93,7 @@ class FrontendController extends \App\Controller\TwigController
        $reportComment  = $commentChapter->signalComment($comment);
 
 
-       header('Location:book');
+       header("Location:chapitre&id={$id_chapter}");
     }
 
 

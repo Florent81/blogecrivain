@@ -18,7 +18,7 @@ Class CommentManager extends Login
     {
       $request = $this->db->prepare('INSERT INTO comment(id_chapter, pseudo, content, date_publication)
       VALUES (:id_chapter, :pseudo, :content, :date_publication)');
-      $request = execute([
+      $request->execute([
           'id_chapter'=>$comment->getIdChapter(),
           'pseudo'=>$comment->getPseudo(),
           'content'=>$comment->getContent(),

@@ -63,7 +63,7 @@ class Comment
     return $this->pseudo;
   }
 
-  public function setPseudo(string $content)
+  public function setPseudo(string $pseudo)
   {
     $this->pseudo = $pseudo;
   }
@@ -83,7 +83,7 @@ class Comment
     return $this->id_chapter;
   }
 
-  public function setIdChapter()
+  public function setIdChapter(int $id_chapter)
   {
     $this->id_chapter = $id_chapter;
   }
