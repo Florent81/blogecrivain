@@ -7,11 +7,11 @@ use App\Model\frontend\Login;
 class Access
 
 {
-    
+    private $id;
     private $pseudo;
     private $mail;
-    private $password;       
-            
+    private $pass;
+
 
   public function __construct($values = NULL)
   {
@@ -30,7 +30,7 @@ class Access
 			{
 				$newKey .= ucfirst($el);
 			}
-			
+
 			$method = 'set' .ucfirst($newKey);
 			if (method_exists($this, $method))
 			{
@@ -38,16 +38,6 @@ class Access
 			}
 		}
 	} 
-
-  public function getPseudo() 
-  {
-    return $this->pseudo;
-  }
-
-  public function setPseudo()
-  {
-    $this->pseudo = $Pseudo;
-  }
 
   public function getMail()
   {
@@ -57,14 +47,34 @@ class Access
   public function setMail()
   {
     $this->mail = $mail;
-  }  
-
-  public function getPassword()
-  {
-    return $this->password;
   }
 
-  public function setPassword()
+  public function getPass()
   {
-    $this->password = $password;
-  }  
+    return $this->pass;
+  }
+
+  public function setPass()
+  {
+    $this->pass = $pass;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setId()
+  {
+    $this->id = $id;
+  }
+
+  public function getPseudo()
+  {
+    return $this->pseudo;
+  }
+
+  public function setPseudo()
+  {
+    $this->pseudo = $pseudo;
+  }

@@ -10,7 +10,7 @@
     width:100%;
     margin-top:10px;
     margin-bottom:-0px;
-  } 
+  }
 body { background-color:#DDD; margin-left:10px; }
       [class*="col"] { margin-bottom: 20px; }
 img { width: 100%; }
@@ -18,8 +18,8 @@ img { width: 100%; }
 .footer{
     margin-top:100px;
     margin-right:10px;
-  
-  } 
+
+  }
 
 .ml-1 {
     margin-left: 10px;
@@ -40,11 +40,11 @@ img { width: 100%; }
   margin-bottom:10px;
   margin-right:10px;
 
-} 
+}
 
 a, a:visited {
 
-  color: #4e4d4d; 
+  color: #4e4d4d;
 }
 a:hover, a:focus, a:active {
   text-decoration: none;
@@ -73,6 +73,27 @@ a:hover, a:focus, a:active {
 
 }
 
+/* ADMIN */
+table, td {
+  border: 1px solid black;
+}
+
+table {
+  margin:auto;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 3px;
+}
+
+.nbre_articles
+{
+  margin-top: 5%;
+  text-align: center;
+  margin-bottom: 10%;
+}
 
 
 
@@ -91,5 +112,3 @@ a:hover, a:focus, a:active {
     width: 1170px;
   }
 }
-
-

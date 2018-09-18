@@ -14,7 +14,7 @@
                   {{chapter.content}}
              </div>
         </div>
-        
+
     </div>
     <div class="block-comments">
          <div class="row">
@@ -27,31 +27,27 @@
                 <div class="comment-content">
                  {{c.content}}
                 </div>
-                
+
           {% endfor %}
             </div>
          </div>
     </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <form role="form" id="contactForm">
+                <form action="addComment&amp;id={{chapter.id}}" id="contactForm" method="post">
                      <div class="add-comment">
                         <h2>Ajouter un commentaire</h2>
                         <div class="row">
-                            <label for="name" class="h4">Pseudo</label>
-                            <input type="text" class="form-control" id="name" placeholder="Entrer pseudo" required>
-                        </div>
-                        <div class="row">
-                            <label for="email" class="h4">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Entrer email" required>
+                            <label for="pseudo" class="h4">Pseudo</label>
+                            <input type="text" class="form-control" id="pseudoComment" name="pseudo" placeholder="Entrer pseudo" required>
                         </div>
                         <div class="row">
                           <div class="form-group">
-                            <label for="message" class="h4 ">Commentaire</label>
-                            <textarea id="message" class="form-control" rows="5" placeholder="Entrer votre commentaire" required></textarea>
-                            <button type="submit" name="addcomment" id="form-submit" class="btn btn-success btn-md pull-right" href="{% add.title %}">Soumettre</button>
+                            <label for="content" class="h4 ">Commentaire</label>
+                            <textarea id="contentComment" name="content" class="form-control" rows="5" placeholder="Entrer votre commentaire" required></textarea>
+                            <button type="submit" name="addcomment" id="form-submit" class="btn btn-success btn-md pull-right">Soumettre</button>
                             <div id="msgSubmit" class="h3 text-center hidden">Commentaire soumis!</div>
-                          </div>  
+                          </div>
                         </div>
                     </div>
                 </form>

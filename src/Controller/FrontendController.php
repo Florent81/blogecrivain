@@ -16,7 +16,7 @@ class FrontendController extends \App\Controller\TwigController
     {
         $lastChapter = new ChapterManager();
         $lastest = $lastChapter->getLastChapter();
-       
+
         echo $this->twig->render('index.html.twig', array(
             'lastest' => $lastest,
         ));
@@ -30,47 +30,58 @@ class FrontendController extends \App\Controller\TwigController
 
         echo $this->twig->render('book.html.twig', array(
             'chapters' => $chapters,
-           
+
         ));
-        
+
     }
 
     public function viewChapter($id)
     {
        $chapterManager = new ChapterManager();
        $commentChapter = new CommentManager();
-       $addComment = new CommentManager();
        $chapter = $chapterManager->getChapter($id);
        $comment  = $commentChapter->getViewComment();
-       $add = $addComment->getAdd($comment);
 
         echo $this->twig->render('viewChapter.html.twig', array(
             'chapter' => $chapter,
             'comment' => $comment,
-            'add' => $add,
+
         ));
-        
+
     }
-    
+
     public function endorsements()
     {
-      
+
         echo $this->twig->render('mentionsLegales.html.twig');
-        
+
     }
 
     public function about()
     {
-      
+
         echo $this->twig->render('propos.html.twig');
-        
+
     }
 
     public function login()
     {
-      
+
         echo $this->twig->render('login.html.twig');
-        
+
+    }
+
+    public function addComment($id_chapter, $pseudo, $content)
+    {
+       $newComment = new Comment();
+       $newComment->setIdChapter($id_chapter);
+       $newComment->setPseudo($pseudo);
+       $newComment->setContent($content);
+
+       $commentChapter = new CommentManager();
+       $addComment  = $commentChapter->add($newComment);
+
+       header('Location:book');
     }
 
 

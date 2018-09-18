@@ -26,3 +26,4 @@ Class AdminManager extends Login
           'date_publication'=>$chapter->getDatePublication()
       ]);
     }
+}

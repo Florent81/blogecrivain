@@ -3,23 +3,26 @@
 {% block title %}Connexion{% endblock %}
 {% block body %}
 <div class="container">
-        <dÒiv class="row">
+        <div class="row">
             <div class="col-md-4 col-md-offset-5">
-                <form>
+                <form action="admin040591" method="post">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Adresse email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" 
-                            aria-describedby="emailHelp" placeholder="Entrer email">
+                            <label for="exampleInputPseudo">Pseudo</label>
+                            <input type="pseudo" class="form-control" name="pseudo"
+                            aria-describedby="emailHelp" placeholder="Entrer pseudo">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Mot de passe</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" 
-                            placeholder="Password">
+                            <input type="password" class="form-control" name="pass"
+                            placeholder="Mot de passe">
                         </div>
                         <div class="form-group-login">
-                            <button type="submit" class="btn btn-primary" href={{ include("OCPlatformBundle:Advert:form.html.twig") }}>Connexion</button>
+                        <button type="submit">Se connecter </button>
+                        <!--<a href="admin040591" class="btn btn-primary btn-lg active"
+                        role="button" aria-pressed="true">Connexion</a> -->
+
                        </div>
-                    
+
                  </form>
             </div>
         </div>

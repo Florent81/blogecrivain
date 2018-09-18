@@ -2,27 +2,50 @@
 
 namespace App\Model\backend;
 
-use App\Model\backend\Admin;
+use App\Model\frontend\Login;
+use App\Model\backend\Access;
 
-Class AdminManager extends Login
+Class AccessManager extends Login
 
 {
     protected $db;
-    
+
     public function __construct()
     {
-       $this->db = self::dbConnect(); 
+       $this->db = self::dbConnect();
     }
 
-
-    public function update(Access $access)
-
+    public function controlMember()
     {
-      $request = $this->db->prepare('UPDATE user SET * WHERE pseudo = :pseudo, 
-      mail = :mail, _password = _password ');
-      $request->execute([
-          'pseudo'=>$user->getPseudo(),
-          'mail'=>$user->getMail(),
-          '_password'=>$user->get_password()
-      ]);
+
+        $member = $_POST['pseudo'];
+        $pass = $_POST['pass'];
+         //  Récupération de l'utilisateur et de son pass hashé
+         $req = $this->db->prepare('SELECT pseudo, pass FROM user WHERE pseudo = :pseudo');
+     		 $req->execute(array(
+     		'pseudo' => $member->getPseudo()));
+
+     		$result = $req->fetch(PDO::FETCH_ASSOC);
+
+        // Comparaison du pass envoyé via le formulaire avec la base
+        $isPasswordCorrect = password_verify($_POST['pass'], $result['pass']);
+
+        if (!$result)
+        {
+             echo 'Mauvais identifiant  !';
+        }
+        else
+        {
+          if ($isPasswordCorrect) {
+         session_start();
+         $_SESSION['id'] = $result['id'];
+         $_SESSION['pseudo'] = $pseudo;
+         echo 'Vous êtes connecté !';
+        }
+        else {
+            echo 'Mauvais identifiant ou mot de passe !';
+        }
+
     }
+ }
+}

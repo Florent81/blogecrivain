@@ -1,5 +1,7 @@
 <?php
-error_reporting(E_ALL); 
+session_start();
+
+error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 require 'vendor/autoload.php';
@@ -13,7 +15,7 @@ if(isset($_GET['url']))
     $url=$_GET['url'];
 
 }
-if($url == "")
+if($url == "index")
 {
    $homepage=new FrontendController();
     $homepage->homepage();
@@ -21,12 +23,12 @@ if($url == "")
 
 elseif ($url == "chapitres")
 
-    
+
     {
     $book = new FrontendController();
     $book->book();
     }
-     
+
 
 elseif ($url == "chapitre")
 {
@@ -42,23 +44,33 @@ elseif ($url == "mentions-legales")
 {
    $endorsements = new FrontendController();
    $endorsements->endorsements();
-}  
+}
 
 elseif ($url == "a-propos")
 {
    $about = new FrontendController();
    $about->about();
-}  
+}
 
 elseif ($url == "authentification")
 {
    $login = new FrontendController();
    $login->login();
-}  
+}
 
 elseif ($url == "admin040591")
 {
-   $admin = new BackendController();
-   $admin->admin();
-} 
+   $authentication = new BackendController();
+   $authentication->authentication();
+}
 
+elseif ($url == "addComment")
+{
+   $newComment = new FrontendController();
+   $newComment->addComment($_GET['id'], $_POST['pseudo'],$_POST['content']);
+}
+
+elseif ($url == "")
+{
+    ( new \App\Controller\ErrorController() )->error404();
+}

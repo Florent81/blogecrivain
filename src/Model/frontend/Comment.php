@@ -6,43 +6,44 @@ use App\Model\frontend\Login;
 
 class Comment
 
-    
+
 {
     private $id;
     private $id_chapter;
     private $content;
     private $pseudo;
     private $datePublication;
-    private $report = false;       
-            
+    private $report = false;
 
-  public function __construct($values = NULL)
+
+  public function __construct($values = null)
   {
     if($values != null)
     {
-      $this->hydrate($values)
+      $this->hydrate($values);
     }
   }
   public function hydrate(array $values)
-	{
-		foreach ($values as $key=>$value)
-		{
-			$elements = explode('_',$key);
-			$newKey='';
-			foreach($elements as $el)
-			{
-				$newKey .= ucfirst($el);
-			}
-			
-			$method = 'set' .ucfirst($newKey);
-			if (method_exists($this, $method))
-			{
-				$this->$method($value);
-			}
-		}
-	} 
+    {
+        foreach ($values as $key=>$value)
+        {
+            $elements = explode('_',$key);
+            $newKey='';
+            foreach($elements as $el)
+            {
+                $newKey .= ucfirst($el);
+            }
 
-  public function getId() 
+            $method = 'set' .ucfirst($newKey);
+            if (method_exists($this, $method))
+            {
+                $this->$method($value);
+            }
+        }
+        return $this;
+    } 
+
+  public function getId()
   {
     return $this->id;
   }
@@ -52,7 +53,7 @@ class Comment
     $this->id = $id;
   }
 
-  public function getContent(): ?string  
+  public function getContent()
   {
     return $this->content;
   }
@@ -62,17 +63,17 @@ class Comment
     $this->content = $content;
   }
 
-  public function getPseudo(): ?varchar  
+  public function getPseudo()
   {
     return $this->pseudo;
   }
 
-  public function setPseudo(varchar $content)
+  public function setPseudo(string $content)
   {
     $this->pseudo = $pseudo;
   }
 
-  public function getDatePublication(): ?int 
+  public function getDatePublication()
   {
     return $this->datePublication;
   }
@@ -82,7 +83,7 @@ class Comment
     $this->datePublication = $datePublication;
   }
 
-  public function getIdChapter(): ?int
+  public function getIdChapter()
   {
     return $this->id_chapter;
   }
@@ -92,7 +93,7 @@ class Comment
     $this->id_chapter = $id_chapter;
   }
 
-  public function getReport(): 
+  public function getReport():
   {
     return $this->report;
   }
