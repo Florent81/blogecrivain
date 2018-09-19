@@ -1,8 +1,8 @@
 <?php
+
 if (!session_status()){
     session_start();
 }
-
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -18,7 +18,8 @@ if(isset($_GET['url']))
     $url=$_GET['url'];
 
 }
-if($url == "index")
+
+if($url == "accueil")
 {
    $homepage=new FrontendController();
     $homepage->homepage();
@@ -57,26 +58,39 @@ elseif ($url == "a-propos")
 
 elseif ($url == "authentification")
 {
+
    $login = new FrontendController();
    $login->login();
 }
 
-elseif ($url == "admin040591")
+elseif ($url === 'admin040591')
 {
+
    $authentication = new BackendController();
    $authentication->authentication();
+
 }
 
 elseif ($url == "addComment")
 {
    $newComment = new FrontendController();
-   $newComment->addComment($_GET['id'], $_POST['pseudo'],$_POST['content']);
+   $newComment->add($_GET['id'], $_POST['pseudo'],$_POST['content']);
 }
 
 elseif ($url == "reportComment")
 {
    $reportComment = new FrontendController();
    $reportComment->reportComment($_GET['id']);
+}
+elseif ($url == "adminchapitres")
+{
+  $adminChapters = new BackendController();
+  $adminChapters->adminChapters();
+}
+elseif ($url == "admincommentaires")
+{
+  $adminComments = new BackendController();
+  $adminComments->adminComments();
 }
 
 

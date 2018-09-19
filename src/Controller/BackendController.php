@@ -13,15 +13,19 @@ use App\Model\backend\NewsManagerPDO;
 
 class BackendController extends \App\controller\TwigController
 {
-    public function authentication()
+    public function authentication($pseudo, $pass)
     {
+      {
+        if (isset($_POST) && !empty($_POST))
         $authentication = new AccessManager();
-        if (isset($_POST) && !empty($_POST)){
-            //Je regarde ce qu'il y a comme champs
-            //si ça me convient j'enregistre ça en bdd ou session
-        }
+        $authentication->setPseudo($pseudo);
+        $authentication->setPass($pass);
 
         echo $this->twig->render('admin.html.twig');
+      }
+      else {
+        echo $this->twig->render('login.html.twig');
+      }
 
     }
 
@@ -29,6 +33,19 @@ class BackendController extends \App\controller\TwigController
     {
 
         echo $this->twig->render('admin.html.twig');
+
+    }
+
+    public function adminChapters()
+    {
+
+        echo $this->twig->render('adminchapter.html.twig');
+
+    }
+    public function adminComments()
+    {
+
+        echo $this->twig->render('admincomment.html.twig');
 
     }
 

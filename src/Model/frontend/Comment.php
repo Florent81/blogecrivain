@@ -13,7 +13,7 @@ class Comment
     private $content;
     private $pseudo;
     private $datePublication;
-    private $report = false;
+    private $report;
 
 
   public function __construct($values = null)
@@ -93,7 +93,7 @@ class Comment
     return $this->report;
   }
 
-  public function setReport()
+  public function setReport(bool $report)
   {
     $this->report = $report;
   }

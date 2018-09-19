@@ -13,28 +13,25 @@ Class CommentManager extends Login
        $this->db = self::dbConnect();
     }
 
-    public function add(Comment $comment)
+    public function addNewComment(Comment $comment)
 
     {
-        var_dump($comment->getIdChapter());
-        var_dump($comment->getPseudo());
-        var_dump($comment->getContent());
 
-
-      $request = $this->db->prepare('INSERT INTO comment(id_chapter, pseudo, content, date_publication)
-      VALUES (:id_chapter, :pseudo, :content, :date_publication)');
-      $request->execute([
+      $request = $this->db->prepare('INSERT INTO comment (id_chapter, pseudo, content, date_publication, report)
+      VALUES (:id_chapter, :pseudo, :content, NOW(), false)');
+      $data = $request->execute([
           'id_chapter'=>$comment->getIdChapter(),
           'pseudo'=>$comment->getPseudo(),
           'content'=>$comment->getContent(),
-          'date_publication'=>$comment->getDatePublication()
+
       ]);
+      return $data;
     }
 
     public function signalComment(Comment $comment)
 
     {
-      $request = $this->db->prepare('UPDATE comment SET report = :report
+      $request = $this->db->prepare('UPDATE comment SET report = true
        WHERE id = :id');
       $isSignaled = $request->execute([
           'id'=>$comment->getId(),

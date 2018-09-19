@@ -1,0 +1,32 @@
+{% extends 'adminbase.html.twig' %}
+{% block head %}
+  <link href="Public/CSS/theme.css" rel="stylesheet">
+<script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({
+  selector: 'textarea',  // change this value according to your HTML
+});</script>
+    {% endblock %}
+{% block title %}Administration des chapitres{% endblock %}
+{% block body %}
+
+    <form action="adminchapter" method="post">
+
+      <h2 style="text-align: center"> Nouveau chapitre:</h2><br />
+      <p style="text-align: center">
+      <h3 style="text-align: center">  Titre :</h3>
+        <input type="text" style="text-align: center"/><br />
+      <h3 style="text-align: center">  Contenu :</h3> <br /><textarea rows="10" cols="20" name="contenu" max-width:"200px"></textarea><br />
+        <input type="hidden" name="id" value="" />
+        <input type="submit" value="Modifier" name="modifier" />
+        <input type="submit" value="Ajouter" />
+      </p>
+    </form>
+    <p style="text-align: center" name="nbre_articles">Il y a actuellement  chapitres. En voici la liste :</p>
+    <table>
+      <tr><th>Titre</th><th>Date d'ajout</th><th>Dernière modification</th><th>Action</th></tr>
+    </table>
+
+
+
+{% endblock %}

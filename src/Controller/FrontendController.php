@@ -71,7 +71,7 @@ class FrontendController extends \App\Controller\TwigController
 
     }
 
-    public function addComment($id_chapter, $pseudo, $content)
+    public function add($id_chapter, $pseudo, $content)
     {
        $newComment = new Comment();
        $newComment->setIdChapter($id_chapter);
@@ -79,7 +79,7 @@ class FrontendController extends \App\Controller\TwigController
        $newComment->setContent($content);
 
        $commentChapter = new CommentManager();
-       $addComment  = $commentChapter->add($newComment);
+       $addComment  = $commentChapter->addNewComment($newComment);
 
        header("Location:chapitre&id={$id_chapter}");
     }
@@ -93,7 +93,7 @@ class FrontendController extends \App\Controller\TwigController
        $reportComment  = $commentChapter->signalComment($comment);
 
 
-       header("Location:chapitre&id={$id_chapter}");
+       header("Location:chapitres");
     }
 
 
