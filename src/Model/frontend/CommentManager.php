@@ -19,7 +19,6 @@ Class CommentManager extends Login
         var_dump($comment->getIdChapter());
         var_dump($comment->getPseudo());
         var_dump($comment->getContent());
-        var_dump($comment->getDatePublication());
 
 
       $request = $this->db->prepare('INSERT INTO comment(id_chapter, pseudo, content, date_publication)
