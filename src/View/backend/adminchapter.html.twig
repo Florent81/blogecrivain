@@ -10,16 +10,27 @@
 {% block title %}Administration des chapitres{% endblock %}
 {% block body %}
 
-    <form action="adminchapter" method="post">
+    <form action="ajoutChapitre" method="post">
 
-      <h2 style="text-align: center"> Nouveau chapitre:</h2><br />
-      <p style="text-align: center">
-      <h3 style="text-align: center">  Titre :</h3>
-        <input type="text" style="text-align: center"/><br />
-      <h3 style="text-align: center">  Contenu :</h3> <br /><textarea rows="10" cols="20" name="contenu" max-width:"200px"></textarea><br />
-        <input type="hidden" name="id" value="" />
+      <div name="AddChapter">
+      <label for="AddChapter" style="text-align: center"><h2> Nouveau chapitre:</h2></label>
+      </div>
+
+
+      <div name="TitleAddChapter">
+      <label for="TitleAddChapter"><h3> Titre :</h3></label>
+      <input type="text" name="title"/><br />
+      </div>
+
+      <div name="ContentAddChapter">
+      <label for="ContentAddChapter" style="text-align: center"><h3> Contenu :</h3></label><br />
+        <div name="Content">
+      <textarea rows="10" cols="20" name="content" max-width:"200px"></textarea><br />
+        </div>
+      </div>
+
         <input type="submit" value="Modifier" name="modifier" />
-        <input type="submit" value="Ajouter" />
+        <input type="submit" value="Ajouter" name="addChapter" />
       </p>
     </form>
     <p style="text-align: center" name="nbre_articles">Il y a actuellement  chapitres. En voici la liste :</p>

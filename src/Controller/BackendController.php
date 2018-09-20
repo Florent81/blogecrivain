@@ -2,8 +2,8 @@
 namespace App\Controller;
 
 use App\Model\frontend\Login;
-use App\Model\backend\AdminManager;
-use App\Model\backend\Admin;
+use App\Model\backend\AdminChapter;
+use App\Model\backend\AdminChapterManager;
 use App\Model\backend\AccessManager;
 use App\Model\backend\Access;
 use App\Model\backend\Crud;
@@ -13,21 +13,29 @@ use App\Model\backend\NewsManagerPDO;
 
 class BackendController extends \App\controller\TwigController
 {
-    public function authentication($pseudo, $pass)
+    public function authentication()
     {
-      {
-        if (isset($_POST) && !empty($_POST))
-        $authentication = new AccessManager();
-        $authentication->setPseudo($pseudo);
-        $authentication->setPass($pass);
+
+
 
         echo $this->twig->render('admin.html.twig');
-      }
-      else {
-        echo $this->twig->render('login.html.twig');
-      }
+
+
 
     }
+
+    public function addNewChapter($title, $content)
+    {
+       $newChapter = new AdminChapter();
+       $newChapter->setTitle($title);
+       $newChapter->setContent($content);
+
+       $addNewChapter = new AdminChapterManager();
+       $addChapter  = $addNewChapter->addNewChapter($newChapter);
+
+       header("Location:chapitres");
+    }
+
 
     public function admin()
     {

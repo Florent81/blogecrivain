@@ -65,10 +65,8 @@ elseif ($url == "authentification")
 
 elseif ($url === 'admin040591')
 {
-
    $authentication = new BackendController();
    $authentication->authentication();
-
 }
 
 elseif ($url == "addComment")
@@ -93,6 +91,12 @@ elseif ($url == "admincommentaires")
   $adminComments->adminComments();
 }
 
+elseif ($url == "ajoutChapitre")
+{
+   $newChapter = new BackendController();
+   $newChapter->addNewChapter($_POST['title'],$_POST['content']);
+   
+}
 
 elseif ($url == "")
 {
