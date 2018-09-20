@@ -10,6 +10,12 @@
 {% block title %}Administration des chapitres{% endblock %}
 {% block body %}
 
+  <div name="ListAllChapters">
+    <label for="ListAllChapter"><h2> Liste des chapitres:</h2></label>
+      <table>
+        <tr><th>Titre</th><th>Date d'ajout</th><th>Dernière modification</th><th>Action</th></tr>
+      </table>
+</div>
     <form action="ajoutChapitre" method="post">
 
       <div name="AddChapter">
@@ -33,10 +39,6 @@
         <input type="submit" value="Ajouter" name="addChapter" />
       </p>
     </form>
-    <p style="text-align: center" name="nbre_articles">Il y a actuellement  chapitres. En voici la liste :</p>
-    <table>
-      <tr><th>Titre</th><th>Date d'ajout</th><th>Dernière modification</th><th>Action</th></tr>
-    </table>
 
 
 

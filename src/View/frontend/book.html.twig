@@ -5,18 +5,18 @@
 <div class="container">
 
     {% for chapter in chapters %}
-    
-    
-            
+
+
+
     <div class="block-chapters">
         <div class="row">
-             <div class="col-md-8 center-block"> 
+             <div class="col-md-8 center-block">
                 <div class="chapters-title">
                      <h2> {{ chapter.title }}</h2>
                          {{ chapter.date_publication|date('d m Y') }}
                 </div>
                 <div class="chapters-content">
-                 {{chapter.content|slice(0, 600) }}
+                 {{chapter.content|slice(0, 600) | raw}}
                 ...<a href="chapitre&id={{ chapter.id }}"> Tout lire</a>
                 </div>
             </div>

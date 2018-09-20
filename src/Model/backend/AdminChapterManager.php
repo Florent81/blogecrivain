@@ -18,13 +18,14 @@ Class AdminChapterManager extends Login
     public function addNewChapter(AdminChapter $adminChapter)
 
     {
-      $request = $this->db->prepare('INSERT INTO chapter (id, title, content, date_publication)
-      VALUES (:title, :content, NOW())');
+      $request = $this->db->prepare('INSERT INTO chapter (title, content, date_publication)
+      VALUES (:title, :content, :date_publication)');
       $data =$request->execute([
           'title'=>$adminChapter->getTitle(),
           'content'=>$adminChapter->getContent(),
+          'date_publication' => ( new \Datetime() )->format('Y-m-d'),
       ]);
-      
+
       return $data;
     }
 
@@ -51,5 +52,13 @@ Class AdminChapterManager extends Login
           'content'=>$chapter->getContent(),
           'date_publication'=>$chapter->getDatePublication()
       ]);
+    }
+    public function getAllChapters()
+
+    {
+          $req= $this->db->query('SELECT id, title, content, date_publication
+          FROM chapter ORDER BY date_publication DESC');
+          $allChapters = $req->fetchAll();
+          return $allChapters;
     }
   }

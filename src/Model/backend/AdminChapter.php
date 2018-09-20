@@ -61,7 +61,7 @@ class AdminChapter
 
   public function setContent(string $content)
   {
-    $this->title = $content;
+    $this->content = $content;
   }
 
   public function getDatePublication()
@@ -71,7 +71,7 @@ class AdminChapter
 
   public function setDatePublication(int $datePublication)
   {
-    $this->title = $datePublication;
+    $this->datePublication = $datePublication;;
   }
 
 
