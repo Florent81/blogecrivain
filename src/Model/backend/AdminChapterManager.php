@@ -20,7 +20,7 @@ Class AdminChapterManager extends Login
     {
       $request = $this->db->prepare('INSERT INTO chapter (title, content, date_publication)
       VALUES (:title, :content, :date_publication)');
-      $data =$request->execute([
+      $data = $request->execute([
           'title'=>$adminChapter->getTitle(),
           'content'=>$adminChapter->getContent(),
           'date_publication' => ( new \Datetime() )->format('Y-m-d'),
@@ -29,17 +29,21 @@ Class AdminChapterManager extends Login
       return $data;
     }
 
-    public function delete($chapter)
+    public function getAdminAllChapters()
 
     {
-      $request = $this->db->prepare('DELETE FROM chapter(title, content, date_publication)
-      WHERE (:id)');
-      $request->execute([
-          'title'=>$chapter->getTitle(),
-          'content'=>$chapter->getContent(),
-          'date_publication'=>$chapter->getDatePublication()
-      ]);
+          $req= $this->db->query('SELECT id, title, content, date_publication
+          FROM chapter ORDER BY date_publication ASC');
+          $adminallChapters = $req->fetchAll();
+          return $adminallChapters;
     }
+
+    public function deleteChapter(int $id)
+{
+      var_dump($id);
+      return $this->db->query("DELETE * FROM chapter WHERE id={$id}");
+}
+
 
     public function update(Chapter $chapter)
 

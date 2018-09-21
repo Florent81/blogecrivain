@@ -73,6 +73,10 @@ a:hover, a:focus, a:active {
   line-height: 1,4 em;
 
 }
+.signaler{
+  margin-left: 20%;
+
+}
 
 /* LOGIN*/
 .form-group-login {
@@ -95,6 +99,9 @@ td {
   padding: 3px;
 }
 
+th {
+  margin-left: : 3px;
+}
 .nbre_articles
 {
   margin-top: 5%;
@@ -102,7 +109,7 @@ td {
   margin-bottom: 10%;
 }
 
-#TitleAddChapter
+.TitleAddChapter
 {
   margin-top: 5%;
   text-align: center;
@@ -112,6 +119,8 @@ td {
 .ListAllChapters{
 text-align: center;
 }
+
+
 
 
 @media (min-width: 768px) {

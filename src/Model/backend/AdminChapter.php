@@ -35,7 +35,7 @@ class AdminChapter
   		}
   	}
   }
-  public function getIdChapter()
+  public function getId()
   {
     return $this->id;
   }
