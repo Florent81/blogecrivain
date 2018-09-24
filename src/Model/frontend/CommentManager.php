@@ -8,23 +8,18 @@ Class CommentManager extends Login
 {
     protected $db;
 
-    public function __construct()
-    {
-       $this->db = self::dbConnect();
+    public function __construct() {
+        $this->db = self::dbConnect();
     }
 
-    public function addNewComment(Comment $comment)
-
-    {
-
+    public function addNewComment(Comment $comment) {
       $request = $this->db->prepare('INSERT INTO comment (id_chapter, pseudo, content, date_publication, report)
       VALUES (:id_chapter, :pseudo, :content, NOW(), false)');
       $data = $request->execute([
           'id_chapter'=>$comment->getIdChapter(),
           'pseudo'=>$comment->getPseudo(),
           'content'=>$comment->getContent(),
-
-      ]);
+          ]);
       return $data;
     }
 

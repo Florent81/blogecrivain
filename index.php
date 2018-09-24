@@ -10,6 +10,7 @@ ini_set("display_errors", 1);
 require 'vendor/autoload.php';
 use App\Controller\FrontendController;
 use App\Controller\BackendController;
+use App\Controller\ErrorController;
 
 
     $url = "";
@@ -70,15 +71,35 @@ use App\Controller\BackendController;
         $viewChapters->adminAllChapters();
     }
 
-    elseif ($url == "deleteChapter") {
-        $deleteChapter = new BackendController();
-        $deleteChapter->deleteChapter($_GET['id']);
 
-    }
+    elseif ($url == "deleteChapter") {
+       if(isset($url) && !empty($_GET['id'])) {
+           $delete = new BackendController();
+           $delete->deleteChapter($_GET['id']);
+       }
+       else {
+       echo "";
+       }
+     }
+
+     elseif ($url == "updateChapter") {
+        if(isset($url) && !empty($_GET['id'])) {
+            $updateChapter = new BackendController();
+            $updateChapter->updateChapter($_GET['id'], $_POST['title'],$_POST['content']);
+        }
+        else {
+            return (new ErrorController())->error404();
+        }
+      }
 
     elseif ($url == "admincommentaires") {
-        $adminComments = new BackendController();
-        $adminComments->adminComments();
+            $adminComments = new BackendController();
+            $adminComments->viewCommentsReport();
+    }
+
+    elseif ($url == "showchapter") {
+            $showChapter = new BackendController();
+            $showChapter->showChapter($_GET['id']);
     }
 
     elseif ($url == "ajoutChapitre") {

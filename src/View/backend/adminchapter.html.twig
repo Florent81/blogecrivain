@@ -10,28 +10,8 @@
 {% block title %}Administration des chapitres{% endblock %}
 {% block body %}
 
-  <div name="ListAllChapters">
-    <label for="ListAllChapter"><h2> Liste des chapitres:</h2></label>
-    {% for chapter in chapters %}
-    <div class="block-chapters">
-        <div class="row">
-             <div class="col-md-8 center-block">
-                <div class="chapters-title">
-                     <h2> {{ chapter.title }}</h2> {{ chapter.date_publication|date('d m Y') }}
-                </div>
-                <div class="chapters-content">
-                 {{chapter.content|slice(0, 100) | raw}}
-                 <form action="deleteChapter&amp;id={{chapter.id}}" id="deleteChapter" method="post">
-                 <button type="submit" id="supprimer">Supprimer</button>
-                 <form action="updateChapter&amp;id={{chapter.id}}" id="updateChapter" method="post">
-                 <button type="submit" id="Modifier">Modifier</button>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-  </div>
+
 
     <form action="ajoutChapitre" method="post">
 
@@ -51,11 +31,32 @@
       <textarea rows="10" cols="20" name="content" max-width:"200px"></textarea><br />
         </div>
       </div>
-
-        <input type="submit" value="Modifier" name="modifier" />
-        <input type="submit" value="Ajouter" name="addChapter" />
+      <input type="submit" value="Modifier" name="modifier" />
+     <input type="submit" value="Ajouter" name="addChapter" />
       </p>
     </form>
+
+    <div name="ListAllChapters">
+      <label for="ListAllChapter"><h2> Liste des chapitres:</h2></label>
+    {% for chapter in chapters %}
+    <div class="block-chapters">
+        <div class="row">
+             <div class="col-md-8 center-block">
+                <div class="chapters-title">
+                     <h2> {{ chapter.title }}</h2> {{ chapter.date_publication|date('d m Y') }}
+                </div>
+                <div class="chapters-content">
+                 {{chapter.content|slice(0, 100) | raw}}
+                 ...<a href="showchapter&id={{ chapter.id }}"> Tout lire</a>
+                 <a href="deleteChapter&amp;id={{chapter.id}}" id="deleteChapter">
+                 Supprimer</a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 
 
 

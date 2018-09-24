@@ -4,43 +4,37 @@ namespace App\Model\frontend;
 
 use App\Model\frontend\Login;
 
-class Chapter 
+class Chapter
 
-    
+
 {
     private $id;
     private $title;
     private $content;
-    private $datePublication;       
-            
+    private $datePublication;
 
-  public function __construct($values = NULL)
-  {
-    if($values != null)
-    {
-      $this->hydrate($values)
+
+    public function __construct($values = NULL) {
+        if($values != null) {
+            $this->hydrate($values)
+        }
     }
-  }
-  public function hydrate(array $values)
-	{
-		foreach ($values as $key=>$value)
-		{
-			$elements = explode('_',$key);
-			$newKey='';
-			foreach($elements as $el)
-			{
-				$newKey .= ucfirst($el);
-			}
-			
-			$method = 'set' .ucfirst($newKey);
-			if (method_exists($this, $method))
-			{
-				$this->$method($value);
-			}
-		}
-	} 
 
-  public function getIdChapter() 
+    public function hydrate(array $values) {
+		   foreach ($values as $key=>$value) {
+			      $elements = explode('_',$key);
+			      $newKey='';
+			      foreach($elements as $el) {
+				        $newKey .= ucfirst($el);
+			      }
+			      $method = 'set' .ucfirst($newKey);
+			      if (method_exists($this, $method)) {
+				        $this->$method($value);
+			      }
+		   }
+	  } 
+
+    public function getIdChapter() 
   {
     return $this->id;
   }
@@ -50,7 +44,7 @@ class Chapter
     $this->id = $id;
   }
 
-  public function getTitle(): ?string  
+  public function getTitle(): ?string
   {
     return $this->title;
   }
@@ -59,7 +53,7 @@ class Chapter
   {
     $this->title = $title;
   }
-  public function getContent(): ?string  
+  public function getContent(): ?string
   {
     return $this->content;
   }
@@ -69,7 +63,7 @@ class Chapter
     $this->title = $content;
   }
 
-  public function getDatePublication(): ?int 
+  public function getDatePublication(): ?int
   {
     return $this->datePublication;
   }
@@ -81,4 +75,3 @@ class Chapter
 
 
 }
-

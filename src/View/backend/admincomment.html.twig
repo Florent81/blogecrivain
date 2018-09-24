@@ -1,0 +1,31 @@
+{% extends 'adminbase.html.twig' %}
+{% block head %}
+  <link href="Public/CSS/theme.css" rel="stylesheet">
+<script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({
+  selector: 'textarea',  // change this value according to your HTML
+});</script>
+    {% endblock %}
+{% block title %}Administration des commentaires signalés{% endblock %}
+{% block body %}
+
+  <div name="ListAllCommentsReport">
+    <label for="ListAllCommentsReport"><h2> Liste des commentaires signalés:</h2></label>
+    {% for c in comment %}
+          <div class="comment-title">
+               <h4> {{ c.title }}{{ c.pseudo }}</h4>
+               <form action="deleteComment&amp;id={{c.id}}" id="deleteComment" method="post">
+               <button type="submit" id="supprimer comment">Supprimer</button>
+               <form action="updateComment&amp;id={{c.id}}" id="updateComment" method="post">
+               <button type="submit" id="Modifier comment">Modifier</button>
+                   {{ c.date_publication|date('d m Y') }}
+          </div>
+          <div class="comment-content">
+           {{c.content}}
+          </div>
+
+    {% endfor %}
+
+
+{% endblock %}

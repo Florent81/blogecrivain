@@ -9,18 +9,16 @@
     {% endblock %}
 {% block title %}Administration{% endblock %}
 {% block body %}
-    <div name="all_chapter_admin">
-    <p style="text-align: center" name="nbre_articles">Il y a actuellement  chapitres. En voici la liste :</p>
-    <table>
-      <tr><th>Titre</th><th>Date d'ajout</th><th>Dernière modification</th><th>Action</th></tr>
-    </table>
-    <div>
 
-    <div name="all_comments_report">
-    <p style="text-align: center">Il y a actuellement  commentaire signalé. En voici la liste :</p>
-    <table>
-    <tr><th>Auteur</th><th>Titre</th><th>Date d'ajout</th><th>Dernière modification</th><th>Action</th></tr>
-    </table>
-    <div>
+<div name="ViewAdminAllChapters">
+  <label for="ViewAdminAllChapter"><h2> Liste des chapitres:</h2></label>
+  <p> Pour voir l'ensemble des chapitres merci de <a href="adminchapitres">cliquer ici</a></p>
+</div>
+
+
+<div name="ViewAdminAllCommentsReport">
+  <label for="ViewAdminAllCommentsReport"><h2> Liste des commentaires signalés:</h2></label>
+    <p> Pour voir l'ensemble des chapitres merci de <a href="admincommentaires">cliquer ici</a></p>
+</div>
 
 {% endblock %}

@@ -14,65 +14,56 @@ class AdminChapter
     private $datePublication;
 
 
-    public function __construct($values = null)
-    {
-      if($values != null)
-      {
-        $this->hydrate($values);
-      }
+    public function __construct($values = null) {
+        if($values != null) {
+            $this->hydrate($values);
+        }
     }
-    public function hydrate(array $values)
-  {
-  	foreach ($values as $key=>$value){
-  		$elements = explode('_',$key);
-  		$newKey='';
-  		foreach($elements as $el){
-  			$newKey .= ucfirst($el);
-  		}
-  		$method = 'set' .ucfirst($newKey);
-  		if (method_exists($this, $method)){
-  			$this->$method($value);
-  		}
-  	}
-  }
-  public function getId()
-  {
-    return $this->id;
-  }
 
-  public function setId(int $id)
-  {
-    $this->id = $id;
-  }
+    public function hydrate(array $values) {
+  	    foreach ($values as $key=>$value){
+  		      $elements = explode('_',$key);
+  		      $newKey='';
+  		      foreach($elements as $el){
+  			        $newKey .= ucfirst($el);
+  		      }
+  		      $method = 'set' .ucfirst($newKey);
+  		      if (method_exists($this, $method)){
+  			        $this->$method($value);
+  		      }
+  	    }
+    }
 
-  public function getTitle()
-  {
-    return $this->title;
-  }
+    public function getId() {
+        return $this->id;
+    }
 
-  public function setTitle(string $title)
-  {
-    $this->title = $title;
-  }
-  public function getContent()
-  {
-    return $this->content;
-  }
+    public function setId(int $id) {
+        $this->id = $id;
+    }
 
-  public function setContent(string $content)
-  {
-    $this->content = $content;
-  }
+   public function getTitle() {
+       return $this->title;
+   }
 
-  public function getDatePublication()
-  {
-    return $this->datePublication;
-  }
+   public function setTitle(string $title) {
+       $this->title = $title;
+   }
 
-  public function setDatePublication(int $datePublication)
-  {
-    $this->datePublication = $datePublication;;
-  }
+   public function getContent() {
+       return $this->content;
+   }
 
+   public function setContent(string $content) {
+       $this->content = $content;
+   }
+
+   public function getDatePublication() {
+       return $this->datePublication;
+   }
+
+   public function setDatePublication(int $datePublication) {
+       $this->datePublication = $datePublication;;
+   }
 
 }
