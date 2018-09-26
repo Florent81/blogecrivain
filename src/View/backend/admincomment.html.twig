@@ -17,8 +17,12 @@
 
           <div class="comment-title">
                <h4> {{ co.title }}{{ co.pseudo }}</h4>
+               {% if co.moderation == false %}
                <a href="updateComment&amp;id={{co.id}}" type="button" class= "btn btn-primary"
                 id="updateComment"> Modérer</a>
+              {% else %}
+              <p>commentaire déjà modéré</p>
+              {% endif %}
                    {{ co.date_publication|date('d m Y') }}
           </div>
           <div class="comment-content">

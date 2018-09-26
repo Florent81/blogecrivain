@@ -22,15 +22,21 @@
           {% for c in comment %}
                 <div class="comment-title">
                      <h4> {{ c.title }}{{ c.pseudo }}</h4>
+                      {% if c.moderation == false %}
                      <form action="reportComment&amp;id={{c.id}}" id="reportForm" method="post">
                        <button type="submit" class= "btn btn-danger" id="signaler">Signaler</button>
                      </form>
+                     {% endif %}
+                     {% if c.moderation == true %}
+                     <p>commentaire déjà signalé</p>
+                     {% endif %}
                          {{ c.date_publication|date('d m Y') }}
                 </div>
                 <div class="comment-content">
                  {% if c.moderation == false %}
                  {{c.content}}
-                 {% else %}
+                 {% endif %}
+                 {% if c.moderation == true %}
                  <p>Ce commentaire a été modéré!</p>
                 {% endif %}
                 </div>

@@ -13,9 +13,7 @@ Class AdminChapterManager extends Login
     public function __construct() {
         $this->db = self::dbConnect();
     }
-    /**
-    * Add New chapitre in the book;
-    */
+  //function that handles the sql query for adding chapter;
     public function addNewChapter(AdminChapter $adminChapter) {
         $request = $this->db->prepare('INSERT INTO chapter (title, content, date_publication)
         VALUES (:title, :content, :date_publication)');
@@ -26,14 +24,14 @@ Class AdminChapterManager extends Login
         ]);
         return $data;
     }
-
+//function that handles the sql query to see all chapters;
     public function getAdminAllChapters() {
         $req= $this->db->query('SELECT id, title, content, date_publication
         FROM chapter ORDER BY date_publication ASC');
         $adminallChapters = $req->fetchAll();
         return $adminallChapters;
     }
-
+//function that handles the sql query to delete a chapter;
     public function delete($id) {
         $req = $this->db->prepare('DELETE FROM chapter WHERE id = ?');
         $del = $req->execute(
@@ -43,7 +41,7 @@ Class AdminChapterManager extends Login
         );
      return $del;
    }
-
+//function that handles the sql query to update a chapter;
     public function update(AdminChapter $chapter) {
         $request = $this->db->prepare('UPDATE chapter SET title = :title, content = :content
         WHERE id = :id');
@@ -54,14 +52,14 @@ Class AdminChapterManager extends Login
         ]);
         return $update;
     }
-
+//function that handles the sql query to display a chapter;
     public function getChapter() {
         $req= $this->db->query('SELECT id, title, content, date_publication
         FROM chapter ');
         $chapter = $req->fetch();
         return $chapter;
     }
-
+//function that handles the sql query to display all chapters;
     public function getAllChapters() {
         $req= $this->db->query('SELECT id, title, content, date_publication
         FROM chapter ORDER BY date_publication DESC');

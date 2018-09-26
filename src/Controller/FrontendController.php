@@ -12,6 +12,7 @@ use App\Model\frontend\UserManager;
 
 class FrontendController extends \App\Controller\TwigController
 {
+//function that returns the home page;
     public function homepage() {
         $lastChapter = new ChapterManager();
         $lastest = $lastChapter->getLastChapter();
@@ -19,7 +20,7 @@ class FrontendController extends \App\Controller\TwigController
             'lastest' => $lastest,
         ));
     }
-
+//function that displays the chapters of the book;
     public function book() {
        $allChapters = new ChapterManager();
        $chapters = $allChapters->getAllChapters();
@@ -27,7 +28,7 @@ class FrontendController extends \App\Controller\TwigController
             'chapters' => $chapters,
         ));
     }
-
+//function that displays a whole chapter;
     public function viewChapter($id) {
        $chapterManager = new ChapterManager();
        $commentChapter = new CommentManager();
@@ -38,19 +39,19 @@ class FrontendController extends \App\Controller\TwigController
             'comment' => $comment,
         ));
     }
-
+//function that displays the legal notices;
     public function endorsements() {
         echo $this->twig->render('mentionsLegales.html.twig');
     }
-
+//feature that displays the biography of the author;
     public function about() {
         echo $this->twig->render('propos.html.twig');
     }
-
+//function that displays the authentication page;
     public function login() {
         echo $this->twig->render('login.html.twig');
     }
-
+//function that allows the addition of comment;
     public function add($id_chapter, $pseudo, $content) {
        $newComment = new Comment();
        $newComment->setIdChapter($id_chapter);
@@ -60,7 +61,7 @@ class FrontendController extends \App\Controller\TwigController
        $addComment  = $commentChapter->addNewComment($newComment);
        header("Location:chapitre&id={$id_chapter}");
     }
-
+//function that can report a comment;
     public function reportComment($id) {
        $comment = new Comment();
        $comment->setreport(true);

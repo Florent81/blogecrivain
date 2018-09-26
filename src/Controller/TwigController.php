@@ -9,6 +9,7 @@ use Twig_Loader_Filesystem;
 
 class TwigController
 {
+//function that manages the twig;
     protected $twig;
     public function __construct() {
         $loader = new Twig_Loader_Filesystem(array('./src/View', './src/View/frontend', './src/View/backend'));

@@ -14,7 +14,7 @@
 body { background-color:#DDD; margin-left:10px; margin-right:10px;}
       [class*="col"] { margin-bottom: 20px; }
 img { width: 100%; }
-
+html {overflow-x: hidden;}
 .mentionsLegales{
     margin-top:100px;
     margin-right:10px;

@@ -13,11 +13,10 @@ Class AccessManager
     public function __construct() {
        $this->db = self::dbConnect();
     }
-
+//function that manages the authentication of members
     public function controlMember() {
         $member = $_POST['pseudo'];
         $pass = $_POST['pass'];
-         //  Récupération de l'utilisateur et de son pass hashé
         $req = $this->db->prepare('SELECT pseudo, pass FROM user WHERE pseudo = :pseudo');
      		$req->execute(array(
      		'pseudo' => $member->getPseudo()));

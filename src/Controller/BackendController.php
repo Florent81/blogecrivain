@@ -8,12 +8,14 @@ use App\Model\backend\AccessManager;
 use App\Model\backend\Access;
 use App\Model\backend\AdminCommentsReportManager;
 use App\Model\backend\AdminCommentsReport;
+use App\Model\frontend\Comment;
+use App\Model\frontend\CommentManager;
 use App\servicies\Authentication;
 
 class BackendController extends \App\Controller\TwigController
 {
     public $msg = 'Vous ne pouvez pas vous connecter à la partie Administration';
-
+//function to add chapter;
     public function addNewChapter($title, $content) {
            $newChapter = new AdminChapter();
            $newChapter->setTitle($title);
@@ -22,13 +24,13 @@ class BackendController extends \App\Controller\TwigController
            $addChapter  = $addNewChapter->addNewChapter($newChapter);
            return header("Location:adminchapitres");
     }
-
+//function to delete chapter;
     public function deleteChapter($id) {
        $deleteChapter = new AdminChapterManager();
        $delete = $deleteChapter->delete($id);
        header("Location: adminchapitres");
     }
-
+//function to update chapter;
     public function updateChapter($id, $title, $content) {
        $updateChapter = new AdminChapter();
        $updateChapter->setId($id);
@@ -38,7 +40,7 @@ class BackendController extends \App\Controller\TwigController
        $newUpdateChapter = $updateAllChapter->update($updateChapter);
        header("Location: adminchapitres");
     }
-
+//function to show chapter;
     public function showChapter($id) {
       $showChapter = new AdminChapterManager();
       $show = $showChapter->getChapter($id);
@@ -46,7 +48,7 @@ class BackendController extends \App\Controller\TwigController
           'show' => $show
       )) ;
     }
-
+//function to show chapters;
     public function adminAllChapters() {
            $allChapters = new AdminChapterManager();
            $chapters = $allChapters->getAdminAllChapters();
@@ -55,7 +57,7 @@ class BackendController extends \App\Controller\TwigController
            ));
 
     }
-
+//function allowing access to the admin area;
     public function admin() {
         if(isset($_POST['pseudo'])&& isset($_POST['pass'])) {
             Authentication::authenticate($_POST['pseudo'], $_POST['pass']);
@@ -68,19 +70,19 @@ class BackendController extends \App\Controller\TwigController
         echo $this->msg;
         return (new FrontendController())->homepage();
     }
-
+//function to return the page adminchapter;
     public function adminChapters() {
             echo $this->twig->render('adminchapter.html.twig');
     }
-
+//function to return the page admincomment;
     public function adminComments() {
             echo $this->twig->render('admincomment.html.twig');
     }
-
+//function to return the page addchapter;
     public function viewAddChapter() {
             echo $this->twig->render('addchapter.html.twig');
     }
-
+//feature to see comments posted;
     public function viewCommentsReport() {
        $commentsReport = new AdminCommentsReportManager();
        $report = $commentsReport->getAllCommentsReport();
@@ -88,14 +90,15 @@ class BackendController extends \App\Controller\TwigController
            'report' => $report,
         ));
     }
-
-    public function updateReport() {
+//feature to moderate comments posted;
+    public function updateReport($id) {
+       $comment = new Comment();
+       $comment->setreport(true);
+       $comment->setId($id);
        $commentReport = new AdminCommentsReportManager();
-       $rep = $commentReport->update();
-       echo $this->twig->render('admincomment.html.twig', array(
+       $rep = $commentReport->update($comment);
+       echo $this->twig->render('admin.html.twig', array(
            'report' => $rep,
         ));
     }
-
-
 }
