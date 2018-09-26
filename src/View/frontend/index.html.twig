@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block title %}Blog Écrivain{% endblock %}
+{% block body %}
+<div class="container">
+        <div class="row">
+            <div class="col-md-3"><h1> Billet simple pour l'Alaska </h1><br />
+                <img class= "img-responsive" src="Public/images/livre.png"><br />
+                <h2> Préambule </h2><br/>
+                <p> À travers ce livre vous voyagerez de
+              l’emblématique mont McKinley (6 194 m)
+             aux glaciers bleutés se
+             déversant dans le Prince William Sound, des plages sauvages de l’île de
+             Kodiak aux forêts profondes de l’île Amirauté, domaine des ours, des
+             saumons et des aigles chauves, c’est la nature que l’on vient rencontrer
+              en Alaska. </p>
+              </div>
+            <div class="col-lg-offset-1 col-md-5"><h1> Nouveau chapitre! </h1><br/>
+                <p> J'ai le plaisir de vous dévoiler
+                mon dernier chapitre.</p><br/>
+                <h2>{{lastest.title}}</h2>
+                le {{lastest.date_publication_fr}}<br/>
+                {{lastest.content|slice(0, 600) | raw }}...
+                <a href="chapitres" type= "button" class= "btn btn-primary"> Tout lire</a>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

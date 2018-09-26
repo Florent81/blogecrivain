@@ -8,8 +8,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="Public/CSS/theme.css" rel="stylesheet">
+    <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
     {% block head %} {% endblock %}
     <title>{% block title %}   {% endblock %}</title>
 
@@ -19,10 +20,9 @@
   <nav class="navbar navbar-inverse">
 
       <ul class="navbar navbar-dark bg-light">
-        <li class="active ml-1"> <a href="accueil">Accueil</a> </li>
-        <li class="ml-1 "> <a href="chapitres">Livre</a> </li>
-        <li class="ml-1 "> <a href="a-propos">À propos</a> </li>
-        <li class="ml-1 "> <a <a href="authentification">Administration</a> </li>
+        <li class="ml-1"> <a href="adminchapitres">Chapitres</a> </li>
+        <li class="ml-1"> <a href="admincommentaires">Commentaires</a> </li>
+        <li class="ml-1 "> <a href="accueil">Déconnexion</a> </li>
       </ul>
 
   </nav>
@@ -42,7 +42,7 @@
 
       <div class=center-block style=float:none;>
         <p><a href="mentions-legales" type= "button" class= "btn btn-warning" name="mentionsLegales">
-        Mentions légales</a></p>
+        Mentions légales</a> </p>
       </div>
 
   </div>

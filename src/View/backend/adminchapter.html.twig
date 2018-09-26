@@ -1,0 +1,39 @@
+{% extends 'adminbase.html.twig' %}
+{% block head %}
+  <link href="Public/CSS/theme.css" rel="stylesheet">
+<script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({
+  selector: 'textarea',  // change this value according to your HTML
+});</script>
+    {% endblock %}
+{% block title %}Administration des chapitres{% endblock %}
+{% block body %}
+
+<label for="ListAllChapter"><h2> Pour ajouter un chapitre <a href="addchapter" type= "button" class= "btn btn-info">cliquer ici</a></h2></label>
+
+    <div name="ListAllChapters">
+      <label for="ListAllChapter"><h2> Liste des chapitres:</h2></label>
+    {% for chapter in chapters %}
+    <div class="block-chapters">
+        <div class="row">
+             <div class="col-md-8 center-block">
+                <div class="chapters-title">
+                     <h2> {{ chapter.title }}</h2> {{ chapter.date_publication|date('d m Y') }}
+                </div>
+                <div class="chapters-content">
+                 {{chapter.content|slice(0, 100) | raw}}
+                 ...<a href="showchapter&id={{ chapter.id }}" type= "button" class= "btn btn-primary"> Tout lire</a>
+                 <a href="deleteChapter&amp;id={{chapter.id}}" type= "button" class= "btn btn-danger" id="deleteChapter">
+                 Supprimer</a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

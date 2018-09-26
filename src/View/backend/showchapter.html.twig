@@ -1,0 +1,36 @@
+{% extends 'adminbase.html.twig' %}
+{% block head %}
+  <link href="Public/CSS/theme.css" rel="stylesheet">
+<script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({
+  selector: 'textarea',  // change this value according to your HTML
+});</script>
+    {% endblock %}
+{% block title %}Administration des chapitres{% endblock %}
+{% block body %}
+
+    <form action="updateChapter&amp;id={{show.id}}"  method="post">
+
+      <div name="AddChapter">
+      <label for="AddChapter" style="text-align: center"><h2> Chapitre:</h2></label>
+      </div>
+
+
+      <div name="TitleAddChapter">
+      <label for="TitleAddChapter"><h3> Titre :</h3></label>
+      <input type="text" name="title" value="{{show.title}}"/><br />
+      </div>
+
+      <div name="ContentAddChapter">
+      <label for="ContentAddChapter" style="text-align: center"><h3> Contenu :</h3></label><br />
+        <div name="Content">
+      <textarea rows="10" cols="20" name="content" max-width:"200px">{{show.content}}</textarea><br />
+        </div>
+      </div>
+      <input type="submit" value="Modifier" name="modifier" />
+      </p>
+    </form>
+
+
+{% endblock %}

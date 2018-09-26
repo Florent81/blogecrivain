@@ -1,7 +1,14 @@
 {
+    "autoload":{
+        "psr-4": {
+            "App\\": "src/"
+        }       
+},
+     
     "name": "espacepro/livrable3",
     "require": {
         "twig/twig": "^2.5",
         "twbs/bootstrap": "^4.1"
     }
+
 }

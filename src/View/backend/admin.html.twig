@@ -1,0 +1,24 @@
+{% extends 'adminbase.html.twig' %}
+{% block head %}
+  <link href="Public/CSS/theme.css" rel="stylesheet">
+<script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({
+  selector: 'textarea',  // change this value according to your HTML
+});</script>
+    {% endblock %}
+{% block title %}Administration{% endblock %}
+{% block body %}
+
+<div name="ViewAdminAllChapters">
+  <label for="ViewAdminAllChapter"><h2> Liste des chapitres:</h2></label>
+  <p> Pour voir l'ensemble des chapitres merci de <a href="adminchapitres" type= "button" class= "btn btn-info">cliquer ici</a></p>
+</div>
+
+
+<div name="ViewAdminAllCommentsReport">
+  <label for="ViewAdminAllCommentsReport"><h2> Liste des commentaires signalés:</h2></label>
+    <p> Pour voir l'ensemble des chapitres merci de <a href="admincommentaires" type= "button" class= "btn btn-info" name="listCommentReport">cliquer ici</a></p>
+</div>
+
+{% endblock %}
