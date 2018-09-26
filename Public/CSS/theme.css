@@ -11,11 +11,11 @@
     margin-top:10px;
     margin-bottom:-0px;
   }
-body { background-color:#DDD; margin-left:10px; }
+body { background-color:#DDD; margin-left:10px; margin-right:10px;}
       [class*="col"] { margin-bottom: 20px; }
 img { width: 100%; }
 
-.footer{
+.mentionsLegales{
     margin-top:100px;
     margin-right:10px;
 
@@ -44,7 +44,7 @@ img { width: 100%; }
 
 a, a:visited {
 
-  color: #4e4d4d;
+  color: ##3d859e;
 }
 a:hover, a:focus, a:active {
   text-decoration: none;

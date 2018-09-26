@@ -10,19 +10,19 @@
 {% block title %}Administration des commentaires signalés{% endblock %}
 {% block body %}
 
-  <div name="ListAllCommentsReport">
+  <div name="ListCommentReport">
     <label for="ListAllCommentsReport"><h2> Liste des commentaires signalés:</h2></label>
-    {% for c in comment %}
+    {% for co in report %}
+
+
           <div class="comment-title">
-               <h4> {{ c.title }}{{ c.pseudo }}</h4>
-               <form action="deleteComment&amp;id={{c.id}}" id="deleteComment" method="post">
-               <button type="submit" id="supprimer comment">Supprimer</button>
-               <form action="updateComment&amp;id={{c.id}}" id="updateComment" method="post">
-               <button type="submit" id="Modifier comment">Modifier</button>
-                   {{ c.date_publication|date('d m Y') }}
+               <h4> {{ co.title }}{{ co.pseudo }}</h4>
+               <a href="updateComment&amp;id={{co.id}}" type="button" class= "btn btn-primary"
+                id="updateComment"> Modérer</a>
+                   {{ co.date_publication|date('d m Y') }}
           </div>
           <div class="comment-content">
-           {{c.content}}
+           {{co.content}}
           </div>
 
     {% endfor %}

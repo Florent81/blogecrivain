@@ -18,24 +18,23 @@ Class AdminCommentsReportManager extends Login
         return $this->db->query("DELETE FROM comment WHERE id={$id}");
     }
 
-    public function update(Comment $comment) {
+    public function update() {
         $request = $this->db->prepare('UPDATE chapter SET title = :title, content = :content,
-        date_publication = :date_publication WHERE title = :title, content = :content,
-        date_publication = :date_publication ');
-        $request->execute([
+        date_publication = :date_publication, report = :true, moderation = :moderation
+        WHERE title = :title, content = :content, date_publication = :date_publication report = :true,
+        moderation = :true ');
+        $req = $request->execute([
             'title'=>$chapter->getTitle(),
             'content'=>$chapter->getContent(),
             'date_publication'=>$chapter->getDatePublication()
         ]);
+        return $req;
     }
 
     public function getAllCommentsReport() {
-      $request = $this->db->prepare('UPDATE comment SET report = true
-       WHERE id = :id');
-      $isSignaled = $request->execute([
-          'id'=>$comment->getId(),
-      ]);
-      var_dump($isSignaled);die;
-      return $isSignaled;
+      $req = $this->db->query('SELECT id, pseudo, content, date_publication, report, moderation
+      FROM comment  WHERE report = true ORDER BY date_publication DESC');
+      $data = $req->fetchAll();
+      return $data;
     }
 }

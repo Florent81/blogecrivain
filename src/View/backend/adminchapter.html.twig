@@ -10,31 +10,7 @@
 {% block title %}Administration des chapitres{% endblock %}
 {% block body %}
 
-
-
-
-    <form action="ajoutChapitre" method="post">
-
-      <div name="AddChapter">
-      <label for="AddChapter" style="text-align: center"><h2> Nouveau chapitre:</h2></label>
-      </div>
-
-
-      <div name="TitleAddChapter">
-      <label for="TitleAddChapter"><h3> Titre :</h3></label>
-      <input type="text" name="title"/><br />
-      </div>
-
-      <div name="ContentAddChapter">
-      <label for="ContentAddChapter" style="text-align: center"><h3> Contenu :</h3></label><br />
-        <div name="Content">
-      <textarea rows="10" cols="20" name="content" max-width:"200px"></textarea><br />
-        </div>
-      </div>
-      <input type="submit" value="Modifier" name="modifier" />
-     <input type="submit" value="Ajouter" name="addChapter" />
-      </p>
-    </form>
+<label for="ListAllChapter"><h2> Pour ajouter un chapitre <a href="addchapter" type= "button" class= "btn btn-info">cliquer ici</a></h2></label>
 
     <div name="ListAllChapters">
       <label for="ListAllChapter"><h2> Liste des chapitres:</h2></label>
@@ -47,8 +23,8 @@
                 </div>
                 <div class="chapters-content">
                  {{chapter.content|slice(0, 100) | raw}}
-                 ...<a href="showchapter&id={{ chapter.id }}"> Tout lire</a>
-                 <a href="deleteChapter&amp;id={{chapter.id}}" id="deleteChapter">
+                 ...<a href="showchapter&id={{ chapter.id }} type= "button" class= "btn btn-primary""> Tout lire</a>
+                 <a href="deleteChapter&amp;id={{chapter.id}}" type= "button" class= "btn btn-danger" id="deleteChapter">
                  Supprimer</a>
 
 
@@ -57,7 +33,7 @@
         </div>
     </div>
     {% endfor %}
-
+</div>
 
 
 {% endblock %}

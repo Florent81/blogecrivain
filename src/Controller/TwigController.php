@@ -5,7 +5,7 @@ namespace App\Controller;
 use Twig_Environment;
 use Twig_Extension_Debug;
 use Twig_Loader_Filesystem;
-use Twig_Extension_Session;
+
 
 class TwigController
 {

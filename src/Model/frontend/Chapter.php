@@ -34,44 +34,35 @@ class Chapter
 		   }
 	  } 
 
-    public function getIdChapter() 
-  {
-    return $this->id;
-  }
+    public function getIdChapter() {
+        return $this->id;
+    }
 
-  public function setId(int $id)
-  {
-    $this->id = $id;
-  }
+    public function setId(int $id) {
+        $this->id = $id;
+    }
 
-  public function getTitle(): ?string
-  {
-    return $this->title;
-  }
+    public function getTitle(): ?string {
+        return $this->title;
+    }
 
-  public function setTitle(string $title)
-  {
-    $this->title = $title;
-  }
-  public function getContent(): ?string
-  {
-    return $this->content;
-  }
+    public function setTitle(string $title) {
+        $this->title = $title;
+    }
 
-  public function setContent(string $content)
-  {
-    $this->title = $content;
-  }
+    public function getContent(): ?string {
+        return $this->content;
+    }
 
-  public function getDatePublication(): ?int
-  {
-    return $this->datePublication;
-  }
+    public function setContent(string $content) {
+        $this->title = $content;
+    }
 
-  public function setDatePublication(int $datePublication)
-  {
-    $this->title = $datePublication;
-  }
+    public function getDatePublication(): ?int {
+        return $this->datePublication;
+    }
 
-
+    public function setDatePublication(int $datePublication) {
+        $this->title = $datePublication;
+    }
 }

@@ -21,7 +21,7 @@ class AdminChapter
     }
 
     public function hydrate(array $values) {
-  	    foreach ($values as $key=>$value){
+  	    foreach ($values as $key=>$value) {
   		      $elements = explode('_',$key);
   		      $newKey='';
   		      foreach($elements as $el){

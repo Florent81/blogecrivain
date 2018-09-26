@@ -8,9 +8,9 @@ use App\Model\backend\AccessManager;
 use App\Model\backend\Access;
 use App\Model\backend\AdminCommentsReportManager;
 use App\Model\backend\AdminCommentsReport;
-use App\Servicies\Authentication;
+use App\servicies\Authentication;
 
-class BackendController extends \App\controller\TwigController
+class BackendController extends \App\Controller\TwigController
 {
     public $msg = 'Vous ne pouvez pas vous connecter à la partie Administration';
 
@@ -77,13 +77,25 @@ class BackendController extends \App\controller\TwigController
             echo $this->twig->render('admincomment.html.twig');
     }
 
+    public function viewAddChapter() {
+            echo $this->twig->render('addchapter.html.twig');
+    }
+
     public function viewCommentsReport() {
-       $comment = new AdminCommentsReport();
-       $comment->setreport(true);
        $commentsReport = new AdminCommentsReportManager();
        $report = $commentsReport->getAllCommentsReport();
        echo $this->twig->render('admincomment.html.twig', array(
-            'comment' => $report,
+           'report' => $report,
         ));
     }
+
+    public function updateReport() {
+       $commentReport = new AdminCommentsReportManager();
+       $rep = $commentReport->update();
+       echo $this->twig->render('admincomment.html.twig', array(
+           'report' => $rep,
+        ));
+    }
+
+
 }

@@ -13,7 +13,9 @@ Class AdminChapterManager extends Login
     public function __construct() {
         $this->db = self::dbConnect();
     }
-
+    /**
+    * Add New chapitre in the book;
+    */
     public function addNewChapter(AdminChapter $adminChapter) {
         $request = $this->db->prepare('INSERT INTO chapter (title, content, date_publication)
         VALUES (:title, :content, :date_publication)');
@@ -43,14 +45,13 @@ Class AdminChapterManager extends Login
    }
 
     public function update(AdminChapter $chapter) {
-        $request = $this->db->prepare('UPDATE chapter SET title = :title, content = :content,
-         WHERE id = :id');
+        $request = $this->db->prepare('UPDATE chapter SET title = :title, content = :content
+        WHERE id = :id');
         $update = $request->execute([
             'id' => $chapter->getId(),
             'title' => $chapter->getTitle(),
             'content' => $chapter->getContent(),
         ]);
-       var_dump($update);die;
         return $update;
     }
 

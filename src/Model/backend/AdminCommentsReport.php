@@ -14,6 +14,7 @@ class AdminCommentsReport
     private $pseudo;
     private $datePublication;
     private $report;
+    private $moderation;
 
     public function __construct($values = null) {
       if($values != null) {
@@ -73,6 +74,30 @@ class AdminCommentsReport
 
      public function setReport(bool $report) {
         $this->report = $report;
+     }
+
+     public function getIdChapter() {
+        return $this->id_chapter;
+     }
+
+     public function setIdChapter(int $id_chapter) {
+        $this->id_chapter = $id_chapter;
+     }
+
+     public function getPseudo() {
+        return $this->pseudo;
+     }
+
+     public function setPseudo(string $pseudo) {
+        $this->pseudo = $pseudo;
+     }
+
+     public function getModeration() {
+         return $this->moderation;
+     }
+
+     public function setModeration(bool $moderation) {
+         $this->moderation = $moderation;
      }
 
 }
